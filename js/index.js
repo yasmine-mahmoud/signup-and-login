@@ -9,7 +9,7 @@ var alertEmail = document.getElementById("alertEmail");
 var alertPassword = document.getElementById("alertPassword");
 var signUpArray = [];
 
-var url = "/E:/FrontEnd/Assignment%2011/";
+var url =( location.pathname).split("/").slice(0,location.pathname.split("/").length-1).join("/");
 //welcome
 // var username = localStorage.getItem("Username");
 // if(username){
@@ -19,7 +19,7 @@ var url = "/E:/FrontEnd/Assignment%2011/";
 //logout
 function logout(){
 	localStorage.removeItem('name');
-	 location.replace(url + "index.html");
+	 location.replace(url + "/index.html");
 }
 
 //sign up
@@ -55,7 +55,7 @@ function signup(){
 				localStorage.setItem("users", JSON.stringify(signUpArray));
 				document.getElementById("exist").innerHTML = '<span class="text-success  m-3">Success</span>';
 			}
-			 location.replace(url + "index.html");
+				location.replace(url +"/index.html");
 		
 }
 }
@@ -81,7 +81,7 @@ function login(){
 			localStorage.setItem("Username", signUpArray[i].name);
 		}
 	}
-	 location.replace(url + "main.html");
+	 location.replace(url + "/main.html");
 }
 var username = localStorage.getItem("Username");
 	document.getElementById("username").innerHTML = "Welcome " + username;
